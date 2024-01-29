@@ -3,7 +3,9 @@ import db from "../config/db";
 
 const Indication = db.define('Indication', {
   description: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false,
+    isEmpty: false
   }
 });
 

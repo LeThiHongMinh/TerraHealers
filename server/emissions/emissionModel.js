@@ -13,6 +13,8 @@ const Emission = db.define('Emission', {
   disposal_type: {
     type: DataTypes.STRING,
     primaryKey: true,
+    equals: ['Reused', 'Recycled', 'Disposed'],
+    isEmpty: false
   },
   production_emissions: {
     type: DataTypes.DECIMAL,

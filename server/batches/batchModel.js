@@ -12,7 +12,8 @@ const Batch = db.define('Batch', {
   },
   quantity: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    min: 0
   }
 });
 

@@ -8,19 +8,23 @@ const Medication = db.define('Medication', {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false 
+    allowNull: false,
+    isEmpty: false
   },
   dose: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    isEmpty: false
   },
   supplier: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    isEmpty: false
   },
   unit_selling_price: {
     type: DataTypes.DECIMAL(12, 2),
-    allowNull: false
+    allowNull: false,
+    min: 0.00
   }
 });
 
