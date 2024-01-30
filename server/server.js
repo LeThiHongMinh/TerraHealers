@@ -10,8 +10,7 @@ const corsOptions = {
 };
 
 app.get('/api', (req, res) => {
-  res.send('Hello from the API');
-});
+  res.send([{"id": 1, "name":"Alice"}, {"id": 2, "name":"Bob"}]);});
 
 try {
   await db.sequelize.authenticate();
