@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  client:
+    container_name: client
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgres-db
+
+  # in practice these details should be hidden in .env files
+  postgres-db:
+    container_name: postgres-db
+    image: postgres:15.4
+    restart: always
+    environment:
+      POSTGRES_DB: TerraHealers
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+# for data persistence
+volumes:
+  postgres-db:
