@@ -1,20 +1,23 @@
 import { DataTypes } from "sequelize";
-import db from "../config/db";
 
-const Batch = db.define('Batch', {
-  batch_number: {
-    type: DataTypes.STRING,
-    primaryKey: true
-  },
-  expires_at: {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
-  quantity: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    min: 0
-  }
-});
+function defineBatchModel(sequelize) {
+  const Batch = sequelize.define('Batch', {
+    batchNumber: {
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
+    expiresAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      min: 0
+    }
+  });
 
-export default Batch;
+  return Batch;
+};
+
+export default defineBatchModel;

@@ -1,29 +1,32 @@
 import { DataTypes } from "sequelize";
-import db from "../config/db";
 
-const Emission = db.define('Emission', {
-  medication_id: {
-    type: DataTypes.STRING,
-    primaryKey: TransitionEvent,
-    references: {
-      model: 'Medications',
-      key: 'id'
+function defineEmissionModel(sequelize) {
+  const Emission = sequelize.define('Emission', {
+    medicationId: {
+      type: DataTypes.STRING,
+      primaryKey: TransitionEvent,
+      references: {
+        model: 'Medications',
+        key: 'id'
+      }
+    },
+    disposalType: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      equals: ['Reused', 'Recycled', 'Disposed'],
+      isEmpty: false
+    },
+    productionEmissions: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    disposalEmissions: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
     }
-  },
-  disposal_type: {
-    type: DataTypes.STRING,
-    primaryKey: true,
-    equals: ['Reused', 'Recycled', 'Disposed'],
-    isEmpty: false
-  },
-  production_emissions: {
-    type: DataTypes.DECIMAL,
-    allowNull: false
-  },
-  disposal_emissions: {
-    type: DataTypes.DECIMAL,
-    allowNull: false
-  }
-});
+  });
 
-export default Emission;
+  return Emission;
+}
+
+export default defineEmissionModel;

@@ -1,12 +1,15 @@
 import { DataTypes } from "sequelize";
-import db from "../config/db";
 
-const Indication = db.define('Indication', {
-  description: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    isEmpty: false
-  }
-});
+function defineIndicationModel(sequelize) {
+  const Indication = sequelize.define('Indication', {
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      isEmpty: false
+    }
+  });
+  
+  return Indication;
+}
 
-export default Indication;
+export default defineIndicationModel;
