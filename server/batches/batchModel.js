@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";
+const { DataTypes } = require("sequelize");
 
 function defineBatchModel(sequelize) {
   const Batch = sequelize.define('Batch', {
@@ -8,16 +8,18 @@ function defineBatchModel(sequelize) {
     },
     expiresAt: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      required: true
     },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      min: 0
+      min: 0,
+      required: true
     }
   });
 
   return Batch;
 };
 
-export default defineBatchModel;
+module.exports = defineBatchModel;

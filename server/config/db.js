@@ -1,15 +1,15 @@
-import { Sequelize } from "sequelize";
-import defineMedicationModel from "../medications/medicationModel";
-import defineEmissionModel from "../emissions/emissionModel";
-import defineIndicationModel from "../indications/indicationModel";
-import defineBatchModel from "../batches/batchModel";
-import definePatientModel from "../patients/patientModel";
-import definePrescriptionModel from "../prescriptions/prescriptionModel";
-import defineDispensedMedicationModel from "../dispensedMedications/dispensedMedicationModel";
-import associateModels from "../config/associations";
+const { Sequelize } = require("sequelize");
+const defineMedicationModel = require("../medications/medicationModel");
+const defineEmissionModel = require("../emissions/emissionModel");
+const defineIndicationModel = require("../indications/indicationModel");
+const defineBatchModel = require("../batches/batchModel");
+const definePatientModel = require("../patients/patientModel");
+const definePrescriptionModel = require("../prescriptions/prescriptionModel");
+const defineDispensedMedicationModel = require("../dispensedMedications/dispensedMedicationModel");
+const associateModels = require("../config/associations");
 
 const dbConfig = {
-  HOST: "localhost",
+  HOST: "postgres-db",
   USER: "postgres",
   PASSWORD: "T3rraHealers",
   DB: "TerraHealers",
@@ -25,11 +25,11 @@ const dbConfig = {
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
-  operatorsAliases: false,
+  operatorsAliases: 0,
   pool: dbConfig.pool
 });
 
-export const db = {};
+const db = {};
 
 db.sequelize = sequelize;
 db.medications = defineMedicationModel(sequelize);
@@ -41,3 +41,5 @@ db.prescriptions = definePrescriptionModel(sequelize);
 db.dispensedMedications = defineDispensedMedicationModel(sequelize);
 
 associateModels(db);
+
+module.exports = db;

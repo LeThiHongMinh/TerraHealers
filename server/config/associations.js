@@ -1,5 +1,5 @@
 function associateMedicationModel(db) {
-  const { medications, emissions, batches, dispensedMedications, prescriptions, indications } = db;
+  const { medications, emissions, indications, batches, dispensedMedications, prescriptions } = db;
 
   medications.hasMany(emissions);
   medications.hasMany(batches);
@@ -25,7 +25,7 @@ function associateEmissionModel(db) {
 };
 
 function associateBatchModel(db) {
-  const { medications, dispensedMedications } = db;
+  const { batches, medications, dispensedMedications } = db;
 
   batches.belongsTo(medications);
   batches.hasMany(dispensedMedications);
@@ -34,9 +34,9 @@ function associateBatchModel(db) {
 function associateDispensedMedicationModel(db) {
   const { dispensedMedications, medications, batches, prescriptions } = db;
 
-  dispensedMedications.hasOne(medications);
-  dispensedMedications.hasOne(batches);
-  dispensedMedications.hasOne(prescriptions);
+  dispensedMedications.belongsTo(medications);
+  dispensedMedications.belongsTo(batches);
+  dispensedMedications.belongsTo(prescriptions);
 };
 
 function associatePrescriptionModel(db) {
@@ -63,4 +63,4 @@ function associateModels(db) {
   associateDispensedMedicationModel(db);
 };
 
-export default associateModels;
+module.exports = associateModels;

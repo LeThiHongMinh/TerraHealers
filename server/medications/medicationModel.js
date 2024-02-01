@@ -1,34 +1,40 @@
-import { DataTypes } from "sequelize";
+const { DataTypes } = require("sequelize");
 
 function defineMedicationModel(sequelize) {
   const Medication = sequelize.define('Medication', {
-    id: {
+    // imprint serves as sort of serial number for the medication type
+    // irl only applies to pills, but can assume this applies to non-pill meds
+    imprint: {
       type: DataTypes.STRING,
-      primaryKey: true
+      unique: true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      isEmpty: false
+      isEmpty: false,
+      required: true
     },
     dose: {
       type: DataTypes.STRING,
       allowNull: false,
-      isEmpty: false
+      isEmpty: false,
+      required: true
     },
     supplier: {
       type: DataTypes.STRING,
       allowNull: false,
-      isEmpty: false
+      isEmpty: false,
+      required: true
     },
-    unit_selling_price: {
+    unitSellingPrice: {
       type: DataTypes.DECIMAL(12, 2),
       allowNull: false,
-      min: 0.00
+      min: 0.00,
+      required: true
     }
   });
   
   return Medication;
 };
 
-export default defineMedicationModel;
+module.exports = defineMedicationModel;
