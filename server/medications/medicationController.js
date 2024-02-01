@@ -1,9 +1,9 @@
 const medicationService = require("./medicationService");
 
 async function createMedication(req, res) {
-  const { imprint, name, dose, supplier, unitSellingPrice } = req.body;
+  const { id, name, dose, supplier, unitSellingPrice } = req.body;
 
-  if (!imprint || !name || !dose || !supplier || !unitSellingPrice) {
+  if (!id || !name || !dose || !supplier || !unitSellingPrice) {
     return res.status(400).json({ message: "Missing medication data" });
   }
 
@@ -37,14 +37,9 @@ async function getMedicationById(req, res) {
 
 async function updateMedication(req, res) {
   const id = req.params.id;
-  const { imprint, name, dose, supplier, unitSellingPrice } = req.body;
 
   if (!id) {
     return res.status(400).json({ message: "Missing ID" });
-  }
-
-  if (!imprint || !name || !dose || !supplier || !unitSellingPrice) {
-    return res.status(400).json({ message: "Missing medication data" });
   }
 
   try {

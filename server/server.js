@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./config/db");
 const medicationRouter = require("./medications/medicationRoutes");
+const batchRouter = require("./batches/batchRoutes");
 const app = express();
 
 const PORT = 5000;
@@ -31,6 +32,7 @@ app.use(express.json());
 
 // routes
 app.use('/api', medicationRouter);
+app.use('/api', batchRouter);
 
 app.listen(5000, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -38,7 +38,6 @@ async function deleteMedication(medicationId) {
 //     offset,
 //     attributes: [
 //       'id',
-//       'imprint',
 //       'name',
 //       'dose',
 //       'supplier',
@@ -55,7 +54,6 @@ async function getAllMedications() {
     order: [['name', 'ASC']],
     attributes: [
       'id',
-      'imprint',
       'name',
       'dose',
       'supplier',

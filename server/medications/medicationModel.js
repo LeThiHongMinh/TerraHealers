@@ -2,11 +2,9 @@ const { DataTypes } = require("sequelize");
 
 function defineMedicationModel(sequelize) {
   const Medication = sequelize.define('Medication', {
-    // imprint serves as sort of serial number for the medication type
-    // irl only applies to pills, but can assume this applies to non-pill meds
-    imprint: {
+    id: {
       type: DataTypes.STRING,
-      unique: true
+      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
