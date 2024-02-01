@@ -58,7 +58,7 @@ async function getAllMedications() {
       'dose',
       'supplier',
       'unitSellingPrice',
-      [literal('(SELECT COALESCE(SUM("Batches"."quantity"), 0) FROM "Batches" WHERE "Batches"."MedicationId" = "Medication"."id")'),
+      [literal('(SELECT COALESCE(SUM("Batches"."quantity"), 0) FROM "Batches" WHERE "Batches"."medicationId" = "Medication"."id")'),
       'totalQuantity']
     ]
   });

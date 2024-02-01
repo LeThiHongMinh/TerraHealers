@@ -29,7 +29,7 @@ async function deleteBatch(batchId) {
 
 async function getBatches(medicationId) {
   const batches = await Batch.findAll({
-    where: medicationId ? { MedicationId: medicationId } : {},
+    where: medicationId ? { medicationId: medicationId } : {},
     order: [['expiresAt', 'ASC']]
   });
 

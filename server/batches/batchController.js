@@ -1,9 +1,9 @@
 const batchService = require("./batchService");
 
 async function createBatch(req, res) {
-  const { batchNumber, expiresAt, quantity, MedicationId } = req.body;
+  const { batchNumber, expiresAt, quantity, medicationId } = req.body;
 
-  if (!batchNumber || !expiresAt || !quantity || !MedicationId) {
+  if (!batchNumber || !expiresAt || !quantity || !medicationId) {
     return res.status(400).json({ message: "Missing batch data" });
   }
 
@@ -72,10 +72,10 @@ async function deleteBatch(req, res) {
 }
 
 async function getBatches(req, res) {
-  const { MedicationId } = req.query;
+  const { medicationId } = req.query;
 
   try {
-    const batches = await batchService.getBatches(MedicationId);
+    const batches = await batchService.getBatches(medicationId);
     res.status(200).json(batches);
   } catch (err) {
     res.status(500).json({ message: err.message });

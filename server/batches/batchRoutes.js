@@ -22,5 +22,5 @@ module.exports = batchRouter;
 //   "batchNumber": "A349X247",   
 //   "expiresAt": "2024-02-01T12:47:00.686Z",
 //   "quantity": "58",
-//   "MedicationId": 1
+//   "medicationId": 1
 // }
