@@ -24,4 +24,5 @@ function definePrescriptionModel(sequelize) {
   return Prescription;
 };
 
+
 module.exports = definePrescriptionModel;

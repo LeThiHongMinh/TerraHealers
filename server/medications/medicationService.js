@@ -66,4 +66,12 @@ async function getAllMedications() {
   return medications;
 };
 
-module.exports = medicationService = { createMedication, getMedicationById, updateMedication, deleteMedication, getAllMedications };
+async function calculateMedicationSellingPrice(medicationId, quantity) {
+  const sellingPrice = await Medication.findByPk(medicationId, {
+    attributes: ['unitSellingPrice']
+  });
+
+  return sellingPrice * quantity;
+}
+
+module.exports = medicationService = { createMedication, getMedicationById, updateMedication, deleteMedication, getAllMedications, calculateMedicationSellingPrice };
