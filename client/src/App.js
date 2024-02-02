@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
+import Disposed from "./scenes/pages/disposed";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -17,6 +18,7 @@ const App = () => {
           <Topbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/disposed" element={<Disposed />}/>
           </Routes>
         </main>
       </div>
