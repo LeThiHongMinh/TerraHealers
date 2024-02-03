@@ -7,6 +7,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Disposed from "./scenes/disposed";
 import MedicationTypes from "./scenes/inventory/MedicationTypes";
 import GenerateBill from "./scenes/generate bill/index.jsx";
+import Prescriptions from "./scenes/prescriptions/index.jsx";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -20,6 +21,7 @@ const App = () => {
           <Topbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/prescriptions" element={<Prescriptions />} />
             <Route path="/medication-types" element={<MedicationTypes />} />
             <Route path="/generate-bill" element={<GenerateBill />} />
             <Route path="/disposed" element={<Disposed />} />

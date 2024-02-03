@@ -33,6 +33,7 @@ const StyledDataGrid = ({ data, columnHeaders }) => {
         "& .MuiDataGrid-footerContainer": {
           borderTop: "none",
           backgroundColor: colors.redAccent[600],
+          color: "#FFFFFF",
         },
         "& .MuiDataGrid-row:nth-child(odd)": {
           backgroundColor: colors.grey[700],
