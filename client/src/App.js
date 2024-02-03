@@ -5,6 +5,8 @@ import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
 import Inventory from "./scenes/inventory";
+import Disposed from "./scenes/pages/disposed";
+
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -19,6 +21,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/inventory" element={<Inventory />} />
+            <Route path="/disposed" element={<Disposed />} />
           </Routes>
         </main>
       </div>
