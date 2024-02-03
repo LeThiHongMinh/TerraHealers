@@ -4,10 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
-import Inventory from "./scenes/inventory/MedicationTypes";
 import Disposed from "./scenes/disposed";
 import MedicationTypes from "./scenes/inventory/MedicationTypes";
-
+import GenerateBill from "./scenes/generate bill/index.jsx";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -22,7 +21,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/medication-types" element={<MedicationTypes />} />
-
+            <Route path="/generate-bill" element={<GenerateBill />} />
             <Route path="/disposed" element={<Disposed />} />
           </Routes>
         </main>
