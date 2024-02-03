@@ -1,16 +1,19 @@
-import * as React from "react";
-import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { useState } from "react";
+import { Box, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import AddMedication from "./AddMedication";
+import StyledDataGrid from "../../components/StyledDataGrid";
 
 export default function App() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
   const columns = [
     { field: "id", headerName: "ID" },
@@ -21,8 +24,14 @@ export default function App() {
       cellClassName: "name-column--cell",
     },
     {
-      field: "dose",
-      headerName: "Dose",
+      field: "category",
+      headerName: "Category",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "dosage",
+      headerName: "Dosage",
       type: "number",
       headerAlign: "left",
       align: "left",
@@ -38,73 +47,31 @@ export default function App() {
       flex: 1,
     },
     {
-      field: "accessLevel",
-      headerName: "Access Level",
+      field: "administered via",
+      headerName: "Administered via",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
-          >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
     },
   ];
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members" />
-      <Box
-        m="40px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .name-column--cell": {
-            color: colors.grey[700],
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.primary[800],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[100],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
-          },
-          "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
-          },
-        }}
-      >
-        <div style={{ height: 300, width: "100%" }}>
-          <DataGrid rows={mockDataTeam} columns={columns} />
-        </div>
+      <Header
+        title="Inventory > Medication Types"
+        subtitle="List of all medication types in inventory"
+      />
+      <Box display="flex" justifyContent="space-between" p={2}>
+        {/*ADD MEDICATION*/}
+        <Box
+          display="flex"
+          backgroundColor={colors.redAccent[600]}
+          borderRadius="3px"
+        >
+          <Button variant="text" onClick={handleClickOpen}>
+            + Add Medication
+          </Button>
+          <AddMedication open={open} setOpen={setOpen} />
+        </Box>
       </Box>
+      <StyledDataGrid rows={mockDataTeam} columns={columns} />
     </Box>
   );
 }

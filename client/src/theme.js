@@ -6,15 +6,15 @@ export const tokens = (mode) => ({
   ...(mode === 'dark'
     ? {
       grey: {
-        900: "#091113",
-        800: "#122227",
-        700: "#1b343a",
-        600: "#24454e",
+        100: "#091113",
+        200: "#122227",
+        300: "#1b343a",
+        400: "#24454e",
         500: "#2d5661",
-        400: "#577881",
-        300: "#819aa0",
-        200: "#abbbc0",
-        100: "#d5dddf",
+        600: "#D9D9D9",
+        700: "#819aa0",
+        800: "#abbbc0",
+        900: "#d5dddf",
       },
       primary: {
         900: "#122023",
@@ -27,7 +27,7 @@ export const tokens = (mode) => ({
         200: "#bcd8de",
         100: "#deecef",
       },
-      greenAccent: {
+      redAccent: {
         900: "#20000b",
         800: "#400015",
         700: "#610020",
@@ -38,7 +38,7 @@ export const tokens = (mode) => ({
         200: "#d999ae",
         100: "#ecccd7",
       },
-      redAccent: {
+      greenAccent: {
         900: "#17000c",
         800: "#2d0018",
         700: "#440025",
@@ -62,7 +62,7 @@ export const tokens = (mode) => ({
       },
     } : {
       grey: {
-        100: "#d5dddf",
+        100: "#ffffff",
         200: "#abbbc0",
         300: "#819aa0",
         400: "#577881",
@@ -83,7 +83,7 @@ export const tokens = (mode) => ({
         800: "#233f45",
         900: "#122023"
       },
-      greenAccent: {
+      redAccent: {
         100: "#ecccd7",
         200: "#d999ae",
         300: "#c76686",
@@ -94,7 +94,7 @@ export const tokens = (mode) => ({
         800: "#400015",
         900: "#20000b"
       },
-      redAccent: {
+      greenAccent: {
         100: "#e3ccd8",
         200: "#c699b1",
         300: "#aa668b",

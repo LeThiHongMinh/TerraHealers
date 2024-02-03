@@ -107,15 +107,15 @@ const Sidebar = () => {
               Processing
             </Typography>
             <Item
-              title="Inventory"
-              to="/inventory"
+              title="Prescriptions"
+              to="/prescriptions"
               icon={<Inventory />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Prescriptions"
-              to="/prescriptions"
+              title="Inventory"
+              to="/inventory"
               icon={<Prescriptions />}
               selected={selected}
               setSelected={setSelected}
