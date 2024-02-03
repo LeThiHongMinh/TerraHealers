@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Box, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
 import Header from "../../components/Header";
 import StyledDataGrid from "../../components/StyledDataGrid";
 import AddPrescription from "./AddPrescription";
+import prescriptions from "./prescriptions";
 
 export default function Prescriptions() {
   const theme = useTheme();
@@ -48,6 +48,12 @@ export default function Prescriptions() {
       flex: 1,
       cellClassName: "name-column--cell",
     },
+    {
+      field: "net_carbon_emissions",
+      headerName: "Net Carbon Emissions",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
   ];
   return (
     <Box m="20px">
@@ -70,7 +76,11 @@ export default function Prescriptions() {
         </Button>
         <AddPrescription open={open} setOpen={setOpen} />
       </Box>
-      <StyledDataGrid data={mockDataTeam} columnHeaders={columns} />
+      <StyledDataGrid
+        data={prescriptions}
+        columnHeaders={columns}
+        redirectLink="batch-id"
+      />
     </Box>
   );
 }

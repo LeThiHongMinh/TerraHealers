@@ -8,6 +8,7 @@ import Disposed from "./scenes/disposed";
 import MedicationTypes from "./scenes/inventory/MedicationTypes";
 import GenerateBill from "./scenes/generate bill/index.jsx";
 import Prescriptions from "./scenes/prescriptions/index.jsx";
+import PrescriptionBatch from "./scenes/prescriptions/PrescriptionBatches.jsx";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -22,9 +23,12 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/prescriptions" element={<Prescriptions />} />
+            <Route path="/prescriptions/batch-id" element={<PrescriptionBatch />} />
             <Route path="/medication-types" element={<MedicationTypes />} />
             <Route path="/generate-bill" element={<GenerateBill />} />
             <Route path="/disposed" element={<Disposed />} />
+
+
           </Routes>
         </main>
       </div>
