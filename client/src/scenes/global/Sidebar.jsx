@@ -115,7 +115,6 @@ const Sidebar = () => {
             />
             <Item
               title="Inventory"
-              to="/inventory"
               icon={<Prescriptions />}
               selected={selected}
               setSelected={setSelected}

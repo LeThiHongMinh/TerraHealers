@@ -4,8 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
-import Inventory from "./scenes/inventory";
-import Disposed from "./scenes/pages/disposed";
+import Inventory from "./scenes/inventory/MedicationTypes";
+import Disposed from "./scenes/disposed";
+import MedicationTypes from "./scenes/inventory/MedicationTypes";
 
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
           <Topbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/medication-types" element={<MedicationTypes />} />
+
             <Route path="/disposed" element={<Disposed />} />
           </Routes>
         </main>

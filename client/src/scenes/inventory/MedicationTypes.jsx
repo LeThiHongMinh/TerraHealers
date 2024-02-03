@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import AddMedication from "./AddMedication";
 import StyledDataGrid from "../../components/StyledDataGrid";
 
-export default function App() {
+export default function MedicationTypes() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [open, setOpen] = useState(false);
@@ -58,20 +58,22 @@ export default function App() {
         title="Inventory > Medication Types"
         subtitle="List of all medication types in inventory"
       />
-      <Box display="flex" justifyContent="space-between" p={2}>
-        {/*ADD MEDICATION*/}
-        <Box
-          display="flex"
-          backgroundColor={colors.redAccent[600]}
-          borderRadius="3px"
-        >
-          <Button variant="text" onClick={handleClickOpen}>
-            + Add Medication
-          </Button>
-          <AddMedication open={open} setOpen={setOpen} />
-        </Box>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        p={2}
+        backgroundColor={colors.redAccent[600]}
+        borderRadius="3px"
+        width={180}
+        height={50}
+        ml={"75%"}
+      >
+        <Button variant="text" onClick={handleClickOpen}>
+          + Add Medication
+        </Button>
+        <AddMedication open={open} setOpen={setOpen} />
       </Box>
-      <StyledDataGrid rows={mockDataTeam} columns={columns} />
+      <StyledDataGrid data={mockDataTeam} columnHeaders={columns} />
     </Box>
   );
 }

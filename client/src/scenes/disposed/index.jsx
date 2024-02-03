@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -7,10 +8,17 @@ import {
   TableRow,
   Paper,
   Box,
+  useTheme,
+  Button,
 } from "@mui/material";
 import disposedMedication from "./data.js";
 import { styled } from "@mui/system";
+import StyledDataGrid from "../../components/StyledDataGrid.jsx";
+import Header from "../../components/Header";
+import { tokens } from "../../theme";
+import AddItem from "./AddItem.jsx";
 
+/*
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: "white",
@@ -23,10 +31,65 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   color: "black",
 }));
+*/
 
 const Disposed = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const columns = [
+    { field: "id", headerName: "ID" },
+    {
+      field: "medication_id",
+      headerName: "Medication ID",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "production_emissions",
+      headerName: "Production Emissions",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "disposal_emissions",
+      headerName: "Disposal Emissions",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "disposal_type",
+      headerName: "Disposal Type",
+      flex: 1,
+      cellClassName: "name-column--cell",
+    },
+  ];
   return (
-    <Box display="flex">
+    <Box m="20px">
+      <Header
+        title="Disposed Drugs Tracker"
+        subtitle="List of all disposed drugs"
+      />
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        p={2}
+        backgroundColor={colors.redAccent[600]}
+        borderRadius="3px"
+        width={180}
+        height={50}
+        ml={"75%"}
+      >
+        <Button variant="text" onClick={handleClickOpen}>
+          + Add Item
+        </Button>
+        <AddItem open={open} setOpen={setOpen} />
+      </Box>
+      {/*
       <TableContainer component={Paper} sx={{ margin: 2 }}>
         <Table>
           <TableHead>
@@ -55,6 +118,8 @@ const Disposed = () => {
           </TableBody>
         </Table>
       </TableContainer>
+*/}
+      <StyledDataGrid data={disposedMedication} columnHeaders={columns} />
     </Box>
   );
 };
