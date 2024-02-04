@@ -12,7 +12,7 @@ import {
   Button,
 } from "@mui/material";
 import disposedMedication from "./data.js";
-import { styled } from "@mui/system";
+
 import StyledDataGrid from "../../components/StyledDataGrid.jsx";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";

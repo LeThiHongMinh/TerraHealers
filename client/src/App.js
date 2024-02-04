@@ -4,11 +4,12 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
-import Inventory from "./scenes/inventory/MedicationTypes";
 import Disposed from "./scenes/disposed";
 import MedicationTypes from "./scenes/inventory/MedicationTypes";
 import MedicationBatches from "./scenes/inventory/MedicationBatches";
-
+import GenerateBill from "./scenes/generate bill/index.jsx";
+import Prescriptions from "./scenes/prescriptions/index.jsx";
+import PrescriptionBatch from "./scenes/prescriptions/PrescriptionBatches.jsx";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -22,9 +23,14 @@ const App = () => {
           <Topbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/prescriptions" element={<Prescriptions />} />
+            <Route path="/prescriptions/batch-id" element={<PrescriptionBatch />} />
             <Route path="/medication-types" element={<MedicationTypes />} />
             <Route path="/medication-batches" element={<MedicationBatches />} />
+            <Route path="/generate-bill" element={<GenerateBill />} />
             <Route path="/disposed" element={<Disposed />} />
+
+
           </Routes>
         </main>
       </div>
