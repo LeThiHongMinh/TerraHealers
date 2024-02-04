@@ -1,7 +1,7 @@
-const disposalTypes = [
+const medications = [
   { label: "Recycle" },
   { label: "Reuse" },
   { label: "Dispose" },
 ];
 
-export default disposalTypes;
+export default medications;

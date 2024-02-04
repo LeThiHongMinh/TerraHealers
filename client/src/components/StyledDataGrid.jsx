@@ -1,11 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 
-const StyledDataGrid = ({ data, columnHeaders }) => {
+const StyledDataGrid = ({ data, columnHeaders, redirectLink }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
   return (
     <Box
       m="40px 0 0 0"
@@ -33,6 +35,7 @@ const StyledDataGrid = ({ data, columnHeaders }) => {
         "& .MuiDataGrid-footerContainer": {
           borderTop: "none",
           backgroundColor: colors.redAccent[600],
+          color: "#FFFFFF",
         },
         "& .MuiDataGrid-row:nth-child(odd)": {
           backgroundColor: colors.grey[700],
@@ -40,7 +43,13 @@ const StyledDataGrid = ({ data, columnHeaders }) => {
       }}
     >
       <div style={{ height: 300, width: "100%" }}>
-        <DataGrid rows={data} columns={columnHeaders} />
+        <DataGrid
+          rows={data}
+          columns={columnHeaders}
+          onRowClick={(params) => {
+            navigate(redirectLink, { state: params.row });
+          }}
+        />
       </div>
     </Box>
   );

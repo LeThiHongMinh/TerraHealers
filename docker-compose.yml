@@ -1,5 +1,9 @@
 version: '3.8'
 
+networks:
+  frontend:
+  backend:
+
 services:
   client:
     container_name: client
@@ -7,6 +11,8 @@ services:
       context: ./client
     ports:
       - 3000:3000
+    networks:
+      - frontend
     depends_on:
       - server
 
@@ -16,6 +22,8 @@ services:
       context: ./server
     ports:
       - 5000:5000
+    networks:
+      - backend
     depends_on:
       - postgres-db
 
@@ -27,11 +35,13 @@ services:
     environment:
       POSTGRES_DB: TerraHealers
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: T3rraHealers
     volumes:
       - postgres-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    networks:
+      - backend
 
 # for data persistence
 volumes:
