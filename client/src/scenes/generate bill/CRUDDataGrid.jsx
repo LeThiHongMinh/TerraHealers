@@ -21,6 +21,7 @@ import {
 } from "@mui/x-data-grid-generator";
 import { useTheme } from "@mui/material";
 import { tokens } from "../../theme";
+import Alert from "@mui/material/Alert";
 
 const roles = ["Market", "Finance", "Development"];
 const randomRole = () => {
@@ -30,38 +31,12 @@ const randomRole = () => {
 const initialRows = [
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 25,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 36,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 19,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 28,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 23,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
+    name: "TWYNSTA TABLET 40MG/10MG",
+    dosage: 25,
+    supplier: "ABC supplier",
+    mrp_per_unit: 30,
+    quantity: 10,
+    selling_price: 300,
   },
 ];
 
@@ -70,6 +45,7 @@ export default function FullFeaturedCrudGrid() {
   const [rowModesModel, setRowModesModel] = React.useState({});
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [alertOpen, setAlertOpen] = React.useState(false);
 
   function EditToolbar(props) {
     const { setRows, setRowModesModel } = props;
@@ -157,7 +133,22 @@ export default function FullFeaturedCrudGrid() {
       headerName: "Name",
       editable: true,
       type: "singleSelect",
-      valueOptions: ["Name 1", "Name 2", "Name 3"],
+      valueOptions: [
+        "ADIMET XR TABLET 1000MG (METFORMIN)",
+        "ADIMET XR TABLET 750MG (METFORMIN)",
+        "GLUCIENT XR EXTENDED-RELEASE TABLET 1000MG (METFORMIN)",
+        "GLUCIENT XR EXTENDED-RELEASE TABLET 750MG (METFORMIN)",
+        "DYMISTA NASAL SPRAY",
+        "BECLOMET EASYHALER 200 MCG/INHALATION DOSE",
+        "PULMICORT TURBUHALER 100 MCG/DOSE",
+        "ZYRTEC ORAL SOLUTION 1 MG/ML (CETRIZINE)",
+        "ZYRTEC TABLET 10 MG (CETRIZINE)",
+        "TELFAST TABLET 180 MG (FEXOFENADINE)",
+        "TELFAST ORAL SUSPENSION 6 MG/ML (FEXOFENADINE)",
+        "EXFORGE TABLET 5MG/160MG",
+        "TWYNSTA TABLET 40MG/10MG",
+        "METFORMIN",
+      ],
       flex: 1,
       cellClassName: "name-column--cell",
     },
@@ -177,7 +168,7 @@ export default function FullFeaturedCrudGrid() {
       cellClassName: "name-column--cell",
     },
     {
-      field: "mrp per unit",
+      field: "mrp_per_unit",
       headerName: "MRP per unit (SGD)",
       type: "text",
       editable: false,
@@ -193,7 +184,7 @@ export default function FullFeaturedCrudGrid() {
       cellClassName: "name-column--cell",
     },
     {
-      field: "selling price",
+      field: "selling_price",
       headerName: "Selling price (SGD)",
       editable: false,
       type: "text",
@@ -282,6 +273,11 @@ export default function FullFeaturedCrudGrid() {
         },
       }}
     >
+      <Alert severity="info">
+        Adimet and Glucient are both different brands of Metformin for treating
+        diabetes, Please consider choosing the medication with lower carbon
+        emission rating during billing.
+      </Alert>
       <div style={{ height: 300, width: "100%" }}>
         <DataGrid
           rows={rows}
