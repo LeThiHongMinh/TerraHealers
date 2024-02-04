@@ -7,6 +7,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Inventory from "./scenes/inventory/MedicationTypes";
 import Disposed from "./scenes/disposed";
 import MedicationTypes from "./scenes/inventory/MedicationTypes";
+import MedicationBatches from "./scenes/inventory/MedicationBatches";
 
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/medication-types" element={<MedicationTypes />} />
-
+            <Route path="/medication-batches" element={<MedicationBatches />} />
             <Route path="/disposed" element={<Disposed />} />
           </Routes>
         </main>

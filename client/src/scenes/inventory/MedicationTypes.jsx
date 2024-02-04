@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import AddMedication from "./AddMedication";
 import StyledDataGrid from "../../components/StyledDataGrid";
 
-export default function MedicationTypes() {
+export default function MedicationTyapes() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [open, setOpen] = useState(false);
