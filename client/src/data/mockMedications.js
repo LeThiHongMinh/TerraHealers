@@ -1,37 +1,43 @@
 export default mockMedications = [
   {
+    // treats diabetes
     id: 'SIN16255P',
-    name: 'ADIMET XR TABLET 1000MG',
+    name: 'ADIMET XR TABLET 1000MG (METFORMIN)',
     indications: ['Treatment of type 2 diabetes mellitus in adults, particularly in overweight patients'],
     dosage: '1000 MG',
     supplier: 'TEVA PHARMACEUTICAL INVESTMENTS SINGAPORE PTE. LTD.',
     quantity: 250,
   },
   {
+    // treats diabetes
+    // possibly lower carbon emission due to smaller dose --> can explain overprescription problem
     id: 'SIN16256P',
-    name: 'ADIMET XR TABLET 750MG',
+    name: 'ADIMET XR TABLET 750MG (METFORMIN)',
     indications: ['Treatment of type 2 diabetes mellitus in adults, particularly in overweight patients'],
     dosage: '750 MG',
     supplier: 'TEVA PHARMACEUTICAL INVESTMENTS SINGAPORE PTE. LTD.',
     quantity: 220,
   },
   {
+    // treats diabetes
     id: 'SIN16096P',
-    name: 'GLUCIENT XR EXTENDED-RELEASE TABLET 1000MG',
+    name: 'GLUCIENT XR EXTENDED-RELEASE TABLET 1000MG (METFORMIN)',
     indications: ['Treatment of type 2 diabetes mellitus in adults, particularly in overweight patients'],
     dosage: '1000 MG',
     supplier: 'GLORIOUS DEXA SINGAPORE PTE. LTD.',
     quantity: 205,
   },
   {
+    // treats diabetes
     id: 'SIN16095P',
-    name: 'GLUCIENT XR EXTENDED-RELEASE TABLET 750MG',
+    name: 'GLUCIENT XR EXTENDED-RELEASE TABLET 750MG (METFORMIN)',
     indications: ['Treatment of type 2 diabetes mellitus in adults, particularly in overweight patients'],
     dosage: '750 MG',
     supplier: 'GLORIOUS DEXA SINGAPORE PTE. LTD.',
     quantity: 212,
   },
   {
+    // treats allergic rhinitis = general allergies (e.g. morning sinus)
     id: 'SIN15255P',
     name: 'DYMISTA NASAL SPRAY',
     indications: ['Symptomatic treatment of moderate to severe allergic rhinitis and rhino-conjunctivitis'],
@@ -40,6 +46,7 @@ export default mockMedications = [
     quantity: 50,
   },
   {
+    // treats asthma
     id: 'SIN08674P',
     name: 'BECLOMET EASYHALER 200 MCG/INHALATION DOSE',
     indications: ['Treatment of bronchial asthma'],
@@ -48,6 +55,7 @@ export default mockMedications = [
     quantity: 30,
   },
   {
+    // treats asthma
     id: 'SIN05043P',
     name: 'PULMICORT TURBUHALER 100 MCG/DOSE',
     indications: ['Treatment of bronchial asthma'],
@@ -56,6 +64,7 @@ export default mockMedications = [
     quantity: 50,
   },
   {
+    // treats allergic rhinitis
     id: 'SIN10796P',
     name: 'ZYRTEC ORAL SOLUTION 1 MG/ML (CETRIZINE)',
     indications: ['Relief of nasal and ocular symptoms of seasonal and perennial allergic rhinitis', 'Relief of symptoms of chronic idiopathic urticaria'],
@@ -64,6 +73,7 @@ export default mockMedications = [
     quantity: 50,
   },
   {
+    // treats allergic rhinitis
     id: 'SIN03022P',
     name: 'ZYRTEC TABLET 10 MG (CETRIZINE)',
     indications: ['Relief of symptoms of seasonal and perennial allergic rhinitis', 'Relief of symptoms of chronic idiopathic urticaria'],
@@ -72,6 +82,7 @@ export default mockMedications = [
     quantity: 165,
   },
   {
+    // treats allergic rhinitis
     id: 'SIN11699P',
     name: 'TELFAST TABLET 180 MG (FEXOFENADINE)',
     indications: ['Relief of symptoms of seasonal and perennial allergic rhinitis', 'Relief of symptoms of chronic idiopathic urticaria'],
@@ -80,6 +91,8 @@ export default mockMedications = [
     quantity: 80,
   },
   {
+    // treats allergic rhinitis
+    // oral suspension --> liquid medication, probably a higher carbon footprint than a pills
     id: 'SIN14199P',
     name: 'TELFAST ORAL SUSPENSION 6 MG/ML (FEXOFENADINE)',
     indications: ['Relief of symptoms of seasonal and perennial allergic rhinitis', 'Relief of symptoms of chronic idiopathic urticaria'],
@@ -88,14 +101,16 @@ export default mockMedications = [
     quantity: 64,
   },
   {
+    // treats hypertension
     id: 'SIN13417P',
     name: 'EXFORGE TABLET 5MG/160MG',
     indications: ['Treatment of essential hypertension'],
-    dosage: '5 MG Amlodipine, 160MG Valsartan',
+    dosage: '5 MG Amlodipine, 160MG Valsartan', // components here, similar for the other hypertension drugs
     supplier: 'NOVARTIS (SINGAPORE) PTE LTD',
     quantity: 280,
   },
   {
+    // treats hypertension
     id: 'SIN14009P',
     name: 'TWYNSTA TABLET 40MG/10MG',
     indications: ['Treatment of essential hypertension'],
@@ -104,6 +119,7 @@ export default mockMedications = [
     quantity: 305,
   },
   {
+    // treats hypertension
     id: 'SIN14192P',
     name: 'COZAAR®XQ® TABLET 5MG/50MG',
     indications: ['Treatment of essential hypertension'],
@@ -112,6 +128,7 @@ export default mockMedications = [
     quantity: 145,
   },
   {
+    // mainly treats hypertension
     id: 'SIN02372P',
     name: 'ZESTRIL TABLET 10 MG (LISONOPRIL)',
     indications: ['Treatment of essential hypertension', 'Management of congestive heart failure', 'Treatment acute myocardial infarction', 'Renal complications of diabetes mellitus'],
@@ -120,6 +137,7 @@ export default mockMedications = [
     quantity: 120,
   },
   {
+    // treats high cholesterol
     id: 'SIN12329P',
     name: 'LOVASTIN TABLET 20 MG',
     indications: ['Treatment of hypercholesterolemia'],
@@ -128,6 +146,7 @@ export default mockMedications = [
     quantity: 180,
   },
   {
+    // treats high cholesterol
     id: 'SIN15623P',
     name: 'KARDAK 10 FILM-COATED TABLETS 10 MG (SIMVASTATIN)',
     indications: ['Treatment of hypercholesterolemia', 'Treatment of hyperlipidemia'],
@@ -136,6 +155,7 @@ export default mockMedications = [
     quantity: 120,
   },
   {
+    // treats high cholesterol
     id: 'SIN16527P',
     name: 'ATORVASTATIN SANDOZ FILM COATED TABLET 10MG',
     indications: ['Treatment of hypercholesterolemia'],
@@ -144,14 +164,16 @@ export default mockMedications = [
     quantity: 320,
   },
   {
+    // treats gout (a type of arthritis)
     id: 'SIN12301P',
-    name: 'COLCITEX TABLET 0.6 MG',
+    name: 'COLCITEX TABLET 0.6 MG (COLCHICINE)',
     indications: ['Treatment of gout'],
     dosage: '0.6 MG',
     supplier: 'ALCARE PHARMACEUTICALS PTE LTD',
     quantity: 190,
   },
   {
+    // treats gout (a type of arthritis)
     id: 'SIN05804P',
     name: 'ALLOPURINOL TABLET 100 MG',
     indications: ['Treatment of gout'],
