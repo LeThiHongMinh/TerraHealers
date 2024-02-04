@@ -10,13 +10,13 @@ import ExpiringMedicationSection from './Expiration';
 const Dashboard = () => {
   return (
     <div className="main">
-      <h1>Dashboard</h1>
+      <h1 className='title'>Dashboard</h1>
       <div className="firstRow">
         <MedicationSection />
       </div>
       <div className="secondRow">
         <div className="barChartContainer">
-          <h2>Carbon Emissions</h2>
+          <h2 className='title'>Carbon Emissions</h2>
           <BarChartComponent />
         </div>
         <div className="expiringMedicationContainer">
