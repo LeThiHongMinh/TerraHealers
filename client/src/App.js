@@ -6,6 +6,7 @@ import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
 import Disposed from "./scenes/disposed";
 import MedicationTypes from "./scenes/inventory/MedicationTypes";
+import MedicationBatches from "./scenes/inventory/MedicationBatches";
 import GenerateBill from "./scenes/generate bill/index.jsx";
 import Prescriptions from "./scenes/prescriptions/index.jsx";
 import PrescriptionBatch from "./scenes/prescriptions/PrescriptionBatches.jsx";
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/prescriptions" element={<Prescriptions />} />
             <Route path="/prescriptions/batch-id" element={<PrescriptionBatch />} />
             <Route path="/medication-types" element={<MedicationTypes />} />
+            <Route path="/medication-batches" element={<MedicationBatches />} />
             <Route path="/generate-bill" element={<GenerateBill />} />
             <Route path="/disposed" element={<Disposed />} />
 

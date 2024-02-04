@@ -1,0 +1,26 @@
+.secondRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.barChartContainer {
+    width: 75%;
+}
+
+.expiringMedicationContainer {
+    width: 25%;
+}
+
+.third-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.pie {
+    width: 50%;
+}
