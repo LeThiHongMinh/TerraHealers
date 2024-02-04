@@ -75,7 +75,7 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.blueAccent[500]}>
-                  <b>APP NAME</b>
+                  <b>NHGP</b>
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
