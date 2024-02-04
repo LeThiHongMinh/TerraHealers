@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
+import { mockMedications } from "../../data/mockMedications";
 import Header from "../../components/Header";
 import AddMedication from "./AddMedication";
 import StyledDataGrid from "../../components/StyledDataGrid";
@@ -24,12 +24,6 @@ export default function MedicationTyapes() {
       cellClassName: "name-column--cell",
     },
     {
-      field: "category",
-      headerName: "Category",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
       field: "dosage",
       headerName: "Dosage",
       type: "number",
@@ -44,11 +38,6 @@ export default function MedicationTyapes() {
     {
       field: "quantity",
       headerName: "Quantity",
-      flex: 1,
-    },
-    {
-      field: "administered via",
-      headerName: "Administered via",
       flex: 1,
     },
   ];
@@ -73,7 +62,7 @@ export default function MedicationTyapes() {
         </Button>
         <AddMedication open={open} setOpen={setOpen} />
       </Box>
-      <StyledDataGrid data={mockDataTeam} columnHeaders={columns} />
+      <StyledDataGrid data={mockMedications} columnHeaders={columns} />
     </Box>
   );
 }

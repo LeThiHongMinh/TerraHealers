@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Box, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
 import Header from "../../components/Header";
 import AddBatch from "./AddBatch";
 import StyledDataGrid from "../../components/StyledDataGrid";
+import { mockMedicationBatches } from "../../data/mockMedicationBatches";
 
 export default function MedicationBatches() {
   const theme = useTheme();
@@ -66,7 +66,7 @@ export default function MedicationBatches() {
         </Button>
         <AddBatch open={open} setOpen={setOpen} />
       </Box>
-      <StyledDataGrid data={mockDataTeam} columnHeaders={columns} />
+      <StyledDataGrid data={mockMedicationBatches} columnHeaders={columns} />
     </Box>
   );
 }
