@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
+import mockMedications from "../../data/mockMedication";
 import Header from "../../components/Header";
 import AddMedication from "./AddMedication";
 import StyledDataGrid from "../../components/StyledDataGrid";
@@ -73,7 +73,7 @@ export default function MedicationTyapes() {
         </Button>
         <AddMedication open={open} setOpen={setOpen} />
       </Box>
-      <StyledDataGrid data={mockDataTeam} columnHeaders={columns} />
+      <StyledDataGrid data={mockMedications} columnHeaders={columns} />
     </Box>
   );
 }
