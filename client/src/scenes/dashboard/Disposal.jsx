@@ -1,4 +1,3 @@
-// DisposalTrackerSection.js
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import Typography from '@mui/material/Typography';
@@ -13,11 +12,8 @@ const COLORS = ['#589EAD', '#71003D', '#FEC260'];
 
 const DisposalTrackerSection = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <Typography variant="h5" gutterBottom>
-        Medication Disposal Information
-      </Typography>
-      <ResponsiveContainer width="80%" height={300}>
+    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', flexDirection: 'row' }}>
+      <ResponsiveContainer width="40%" height={300}>
         <PieChart>
           <Pie
             data={data}
@@ -37,12 +33,15 @@ const DisposalTrackerSection = () => {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: '-50px' }}>
+        <h2>
+          Disposal Tracker
+        </h2>
         {data.map((entry, index) => (
-          <div key={`legend-${index}`} style={{ display: 'inline-block', margin: 'px' }}>
-            <span style={{ backgroundColor: COLORS[index], width: '20px', height: '20px', display: 'inline-block' }}></span>
-            <Typography variant="body2" style={{ marginLeft: '5px' }}>
-              {entry.name}: {entry.value}%
+          <div key={`legend-${index}`} style={{ display: 'flex', alignItems: 'center', margin: '5px' }}>
+            <span style={{ backgroundColor: COLORS[index], width: '20px', height: '20px', display: 'inline-block', marginRight: '5px' }}></span>
+            <Typography variant="body2">
+              {entry.name}
             </Typography>
           </div>
         ))}

@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts';
+import { Button } from '@mui/material';
 
 const months = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
@@ -30,37 +31,31 @@ const generateMonthlyData = () => {
   }));
 };
 
-const generateWeeklyData = (selectedMonth) => {
-  // Generate sample data for weeks up to the current week
-  const currentMonthIndex = new Date().getMonth();
-  const currentWeek = Math.ceil(new Date().getDate() / 7); // Calculate current week
+const generateWeeklyData = () => {
+  // Generate sample data for weeks in the last month
+  const currentDate = new Date();
+  const currentMonthIndex = currentDate.getMonth();
+  const lastMonthIndex = currentMonthIndex === 0 ? 11 : currentMonthIndex - 1; // Adjust for January
+  const lastMonthYear = currentMonthIndex === 0 ? currentDate.getFullYear() - 1 : currentDate.getFullYear();
 
-  const weeksInMonth = currentWeek;
+  const lastMonthDays = new Date(lastMonthYear, lastMonthIndex + 1, 0).getDate(); // Number of days in the last month
+  const weeksInLastMonth = Math.ceil(lastMonthDays / 7); // Calculate weeks in the last month
 
-  const selectedMonthData = generateMonthlyData().find(entry => entry.month === selectedMonth);
+  const selectedMonthData = generateMonthlyData().find(entry => entry.month === months[lastMonthIndex]);
   const weeklyData = [];
 
-  for (let week = 1; week <= weeksInMonth; week++) {
-    if (week === currentWeek && selectedMonth === months[currentMonthIndex]) {
-      // If it's the current week and month, consider only days passed in the current week
-      const daysInCurrentWeek = new Date().getDate() % 7 || 7;
-      const adjustedProduction = Math.floor(Math.random() * 20) + 100; // Adjusted value for illustration
-      const adjustedSales = Math.floor(Math.random() * 20) + 200;
-      const adjustedDisposal = Math.floor(Math.random() * 10) + 50;
-      
-      weeklyData.push({
-        ...selectedMonthData,
-        week: `W${week}`,
-        production: adjustedProduction,
-        sales: adjustedSales,
-        disposal: adjustedDisposal,
-      });
-    } else {
-      weeklyData.push({
-        ...selectedMonthData,
-        week: `W${week}`,
-      });
-    }
+  for (let week = 1; week <= weeksInLastMonth; week++) {
+    const adjustedProduction = Math.floor(Math.random() * 20) + 100; // Adjusted value for illustration
+    const adjustedSales = Math.floor(Math.random() * 20) + 200;
+    const adjustedDisposal = Math.floor(Math.random() * 10) + 50;
+
+    weeklyData.push({
+      ...selectedMonthData,
+      week: `W${week}`,
+      production: adjustedProduction,
+      sales: adjustedSales,
+      disposal: adjustedDisposal,
+    });
   }
 
   return weeklyData;
@@ -70,12 +65,26 @@ const BarChartComponent = () => {
   const [viewMode, setViewMode] = useState('monthly');
   const data = viewMode === 'monthly' ? generateMonthlyData() : generateWeeklyData(generateMonthlyData());
 
-  const colors = ['#589EAD', '#71003D', '#FEC260'];
+  const colors = ['#71003D', '#589EAD', '#FEC260'];
 
   return (
     <div>
-      <button onClick={() => setViewMode('monthly')}>Monthly View</button>
-      <button onClick={() => setViewMode('weekly')}>Weekly View</button>
+      <Button
+        onClick={() => setViewMode('monthly')}
+        color="primary"
+        variant="contained"
+        style={{ backgroundColor: '#71003D', marginLeft: '25px', color: 'white', fontWeight: 'bold' }}
+      >
+        Monthly View
+      </Button>
+      <Button
+        onClick={() => setViewMode('weekly')}
+        color="secondary"
+        variant="contained"
+        style={{ backgroundColor: '#FEC260', marginLeft: '5px', color: 'black', fontWeight: 'bold' }}
+      >
+        Weekly View
+      </Button>
 
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>

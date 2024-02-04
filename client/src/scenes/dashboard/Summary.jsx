@@ -6,7 +6,8 @@ const MedicationSection = () => {
   const containerStyles = {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '10px',
+    marginLeft:'25px',
+    marginRight: '25px'
   };
 
   const cardStyles = {
